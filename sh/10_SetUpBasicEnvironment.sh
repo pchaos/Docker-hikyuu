@@ -10,12 +10,14 @@ debdir="/tmp/archives"
 if [ -d $debdir ]; then
     cd $debdir
     dpkg -i *.deb
+    [ -d mysql ] && dpkg -i mysql/*.deb
+    [ -d hdf5 ] && dpkg -i hdf5/*.deb
 fi
 
 # install development environment
 # apt-get install -y build-essential git wget sudo vim git
 
-mkdir /home/fashingdog
+mkdir $HOME
 
 #RUN conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython matplotlib lxml hdf5
 

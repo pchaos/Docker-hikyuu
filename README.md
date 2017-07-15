@@ -1,6 +1,8 @@
 # Docker-hikyuu
 using docker build hikyuu
 
+基于fasiondog的hikyuu搭建hikyuu环境
+
 本文件在linux环境下测试（windows下不能保障,需要修改相应的脚本）。
 
 安装前请确认已配置好docker环境。
@@ -19,4 +21,9 @@ using docker build hikyuu
 
    ./start.sh
 
+
+
+
+--------------------------------------------------
+git add Dockerfile README.md build.sh cleanUnUsedDocker.sh sh/10_SetUpBasicEnvironment.sh sh/15_buildboost.sh sh/20_build_talib.sh sh/25_buildlog4plus.sh sh/30_buildhikyuu.sh start.sh
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+echo 清理不用的docker磁盘空间
 echo cleaing ..............................
 
 docker rm -v $(docker ps -a -q -f status=exited)

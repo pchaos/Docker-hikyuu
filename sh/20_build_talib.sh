@@ -12,7 +12,7 @@ if [ -f $tocheckfile ]; then
   make install
 fi
 
-echo pip install -y ta-lib
+echo .............................. pip install -y ta-lib
 
 pip install ta-lib
 
