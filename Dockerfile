@@ -1,12 +1,9 @@
 FROM ubuntu:16.04
 MAINTAINER chaos "p19992003@gmail.com"
 
-LABEL Description="基于fashingdog的hikyuu搭建hikyuu环境"
+LABEL Description="基于fasiondog的hikyuu搭建hikyuu环境"
 
-RUN apt-get update --fix-missing
-
-#RUN apt-get update --fix-missing && apt-get install -y language-pack-zh-hant language-pack-zh-hans language-pack-en  -d  git -o dir::cache=/tmp
-RUN echo $(cat /etc/os-release)
+#RUN apt-get update --fix-missing
 
 ARG chinaLang=C.UTF-8
 ARG fasiondoghome=/home/fasiondog
@@ -56,9 +53,24 @@ RUN $tmpdir/25_buildlog4plus.sh
 
 COPY sh/30_buildhikyuu.sh $tmpdir/
 #COPY sh/30_buildhikyuu.sh hikyuu $tmpdir/
-#USER fasiondog
+
+ENV PYTHONPATH=$HOME/hikyuu/tools:/opt/conda/ \
+ BOOST_ROOT=$HOME//boost_1_64_0 \
+ BOOST_LIB=/usr/local/lib \
+ HIKYUU=$HOME/hikyuuexport LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$HOME/hikyuu/tools/hikyuu/:/usr/local/lib \
+ CPLUS_INCLUDE_PATH=/opt/conda/include/python3.6m/:$HOME/hikyuu/extern-libs/sqlite3/:$HOME/hikyuu/extern-libs/mysql/include/:/usr/include/:/usr/include/hdf5/serial/:/usr/local/include/log4cplus/
+
+RUN conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython matplotlib lxml hdf5 jupyter
+
+# Add Tini
+ENV TINI_VERSION v0.15.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+ENTRYPOINT ["/tini", "--"]
+
+EXPOSE 8888
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
 
 # zh_CN.utf8
 #DEBIAN_FRONTEND=noninteractive
 
-#ENTRYPOINT "echo 开始hikyuu "

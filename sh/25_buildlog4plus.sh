@@ -8,7 +8,7 @@ log4cfile=$tmpdir/$log4c.tar.gz
 tar -xzf $log4cfile
 cd $log4c
 #./configure --prefix=/usr CXXFLAGS="std=-c++11"
-./configure --prefix=/usr CXXFLAGS=-std=c++0x
+./configure --prefix=/usr/local CXXFLAGS=-std=c++0x
 make -j 4
 make install
 
