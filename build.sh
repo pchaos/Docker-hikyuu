@@ -11,6 +11,8 @@ log4c="log4cplus-1.2.1-rc2.tar.gz"
 [ ! -d hikyuu ] && git clone https://git.oschina.net/fasiondog/hikyuu.git
 [ -d archives ] && rm -rf lock partial
 [ ! -d archives ] && mkdir archives
+TINI_VERSION=v0.15.0
+[ ! -f tini ] &&  wget -O tini https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini && chmod a+x tini
 
 set -e
 chmod a+x sh/*.sh

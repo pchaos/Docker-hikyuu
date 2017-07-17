@@ -11,5 +11,8 @@ cd $log4c
 ./configure --prefix=/usr/local CXXFLAGS=-std=c++0x
 make -j 4
 make install
+cd ..
+rm $log4cfile
+rm -rf $log4c
 
 echo done ................................. $0

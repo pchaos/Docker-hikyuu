@@ -60,16 +60,16 @@ ENV PYTHONPATH=$HOME/hikyuu/tools:/opt/conda/ \
  HIKYUU=$HOME/hikyuuexport LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$HOME/hikyuu/tools/hikyuu/:/usr/local/lib \
  CPLUS_INCLUDE_PATH=/opt/conda/include/python3.6m/:$HOME/hikyuu/extern-libs/sqlite3/:$HOME/hikyuu/extern-libs/mysql/include/:/usr/include/:/usr/include/hdf5/serial/:/usr/local/include/log4cplus/
 
-RUN conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython matplotlib lxml hdf5 jupyter
+COPY  hikyuu $HOME/hikyuu/
+RUN $tmpdir/30_buildhikyuu.sh
 
-# Add Tini
-ENV TINI_VERSION v0.15.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
-RUN chmod +x /tini
-ENTRYPOINT ["/tini", "--"]
+# Add Tini. Tini operates as a process subreaper for jupyter. This prevents kernel crashes.
+ENV TINI=/usr/local/bin
+COPY tini $tmpdir/
+#ENTRYPOINT ["$tmpdir/tini", "--"]
 
 EXPOSE 8888
-CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
+#CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
 
 # zh_CN.utf8
 #DEBIAN_FRONTEND=noninteractive

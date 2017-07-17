@@ -11,4 +11,5 @@ ln -s /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6  /usr/lib/x86_64-linux-gnu/l
 # if not exists hikyuu then download
 [ ! -d hikyuu ] && git clone https://github.com/fasiondog/hikyuu.git
 cd hikyuu
+./build.sh
 

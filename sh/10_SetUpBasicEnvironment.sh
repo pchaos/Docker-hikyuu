@@ -27,10 +27,8 @@ fi
 # install development environment
 #
 
-
-
+/opt/conda/bin/conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython
+/opt/conda/bin/conda install -y matplotlib lxml hdf5 jupyter
 #RUN conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython matplotlib lxml hdf5
-
-#RUN conda install -y jupyter tushare
 
 echo done ................................. $0
