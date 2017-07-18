@@ -22,7 +22,8 @@ echo building .............................. $buildName
 docker build -t=$buildName .
 
 echo build .............................. done
+echo --------------------------------------------------
 echo run in shell:
 echo ./start.sh
-
+echo --------------------------------------------------
 

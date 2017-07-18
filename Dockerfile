@@ -1,9 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER chaos "p19992003@gmail.com"
 
-LABEL Description="基于fasiondog的hikyuu搭建hikyuu环境"
-
-#RUN apt-get update --fix-missing
+LABEL Description="ubuntu 16.04 系统下基于fasiondog的hikyuu搭建hikyuu环境"
 
 ARG chinaLang=C.UTF-8
 ARG fasiondoghome=/home/fasiondog
@@ -14,7 +12,8 @@ ENV TZ=Asia/Shanghai \
  LANGUAGE=$chinaLang \
  LC_ALL=$chinaLang \
  tmpdir=/tmp \
- HOME=$fasiondoghome
+ HOME=$fasiondoghome \
+ DEBIAN_FRONTEND=noninteractive
 
 #安装中文和英文语言支持
 COPY sh/10_SetUpBasicEnvironment.sh sh/conda3.sh \
@@ -45,6 +44,8 @@ RUN  $tmpdir/20_build_talib.sh
 
 #boost
 COPY sh/15_buildboost.sh boost_1_64_0.tar.gz $tmpdir/
+
+
 # install boost
 RUN $tmpdir/15_buildboost.sh
 
@@ -72,5 +73,4 @@ EXPOSE 8888
 #CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
 
 # zh_CN.utf8
-#DEBIAN_FRONTEND=noninteractive
-
+#

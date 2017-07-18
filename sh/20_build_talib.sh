@@ -10,10 +10,12 @@ if [ -f $tocheckfile ]; then
   # 加上 make -j4 会报错 Makefile:254: recipe for target 'gen_code-gen_code.o' failed
   make
   make install
+  rm $tocheckfile
 fi
 
 echo .............................. pip install -y ta-lib
 
 pip install ta-lib
+pip install pyperclip
 
 echo done ................................. $0
