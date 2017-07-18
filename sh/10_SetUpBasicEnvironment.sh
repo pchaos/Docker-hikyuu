@@ -25,10 +25,10 @@ fi
 
 if [ -d $debdir ]; then
     cd $debdir
-    dpkg -i *.deb
+    [ -f $debdir/git_1%3a2.7.4-0ubuntu1.1_amd64.deb ] && dpkg -i *.deb
     [ ! -d mysql ] && apt-get install -y libmysqlclient-dev libmysqlclient20
     [ -d mysql ] && dpkg -i mysql/*.deb
-    [ ! -d hdf5 ] && apt-get install -y lihdf5-dev lihdf5-serial-dev
+    [ ! -d hdf5 ] && apt-get install -y libhdf5-dev libhdf5-serial-dev
     [ -d hdf5 ] && dpkg -i hdf5/*.deb
 fi
 
@@ -39,5 +39,6 @@ echo .............................. conda update
 /opt/conda/bin/conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython
 /opt/conda/bin/conda install -y matplotlib lxml hdf5 jupyter
 #RUN conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython matplotlib lxml hdf5
+echo .............................. conda update Done
 
 echo done ................................. $0
