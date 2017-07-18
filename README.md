@@ -18,18 +18,24 @@ using docker build hikyuu
  *   ./build.sh （或 sudo ./build.sh)
 
 上面最后一步需要用到网络在线安装需要的资源，可能会需要几个小时完成。
+编译完成后的hikyuu主目录在docker中的 /home/fasiondog/hikyuu
 
 ## 安装完成后，运行：
 
  *   ./start.sh （或 sudo ./start.sh）
- * 输入 jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root ，在浏览器中输入 127.0.0.1：8888， 即可使用jupyter
+ *   在docker中输入 jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root ，
+ *   浏览器（docker之外的主系统）中输入 127.0.0.1：8888， 即可使用jupyter
+
 
 感谢制作docker过程中fasiondog的鼎力支持。
 
 
 --------------------------------------------------
-git add Dockerfile README.md build.sh cleanUnUsedDocker.sh sh/10_SetUpBasicEnvironment.sh sh/15_buildboost.sh sh/20_build_talib.sh sh/25_buildlog4plus.sh sh/30_buildhikyuu.sh start.sh
+remarks:
+
+git add Dockerfile README.md build.sh cleanUnUsedDocker.sh sh/10_SetUpBasicEnvironment.sh sh/15_buildboost.sh sh/20_build_talib.sh sh/25_buildlog4plus.sh \
+  sh/30_buildhikyuu.sh start.sh sh/30_patchfile.hikyuu
 
 To run Docker, your machine must have a 64-bit operating system running Windows 7 or higher. Additionally, you must make sure that virtualization is enabled on your machine.
 
-https://docs.docker.com/toolbox/toolbox_install_windows/#step-2-install-docker-toolbox
+* https://docs.docker.com/toolbox/toolbox_install_windows/#step-2-install-docker-toolbox

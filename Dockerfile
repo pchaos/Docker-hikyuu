@@ -52,14 +52,14 @@ RUN $tmpdir/15_buildboost.sh
 COPY /sh/25_buildlog4plus.sh log4cplus-1.2.1-rc2.tar.gz $tmpdir/
 RUN $tmpdir/25_buildlog4plus.sh
 
-COPY sh/30_buildhikyuu.sh $tmpdir/
+COPY sh/30_buildhikyuu.sh sh/30_patchfile.hikyuu $tmpdir/
 #COPY sh/30_buildhikyuu.sh hikyuu $tmpdir/
 
 ENV PYTHONPATH=$HOME/hikyuu/tools:/opt/conda/ \
  BOOST_ROOT=$HOME//boost_1_64_0 \
  BOOST_LIB=/usr/local/lib \
- HIKYUU=$HOME/hikyuuexport LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$HOME/hikyuu/tools/hikyuu/:/usr/local/lib \
- CPLUS_INCLUDE_PATH=/opt/conda/include/python3.6m/:$HOME/hikyuu/extern-libs/sqlite3/:$HOME/hikyuu/extern-libs/mysql/include/:/usr/include/:/usr/include/hdf5/serial/:/usr/local/include/log4cplus/
+ HIKYUU=$HOME/hikyuuexport LD_LIBRARY_PATH=./:/usr/local/lib:/usr/lib:$HOME/hikyuu/tools/hikyuu/:/usr/local/lib \
+ CPLUS_INCLUDE_PATH=/opt/conda/include/python3.6m/:$HOME/hikyuu/extern-libs/sqlite3/:/usr/include/:/usr/include/hdf5/serial/:/usr/local/include/log4cplus/
 
 COPY  hikyuu $HOME/hikyuu/
 RUN $tmpdir/30_buildhikyuu.sh

@@ -1,0 +1,15 @@
+diff --git Jamroot.linux Jamroot.linux
+index e34ad55..b31b75e 100644
+--- Jamroot.linux
++++ Jamroot.linux
+@@ -10,7 +10,8 @@ using gcc ;
+
+ # Python configuration
+ #using python : 2.6 : /usr ;
+-using python : 3.5 : : /usr/include/python3.5 ;
++#using python : 3.5 : : /usr/include/python3.5 ;
++using python : 3.6 : /opt/conda ;
+
+ # Specify the path to the Boost project.  If you move this project,
+ # adjust this path to refer to the Boost root directory.
+
