@@ -14,7 +14,7 @@ ln -s /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6  /usr/lib/x86_64-linux-gnu/l
 
 # solve: ImportError: libGL.so.1: cannot open shared object file: No such file or directory
 apt install -y libgl1-mesa-glx
-apt install -y qt5-image-formats-plugins
+#apt install -y qt5-image-formats-plugins
 
 # if not exists hikyuu then download
 [ ! -d hikyuu ] && git clone https://github.com/fasiondog/hikyuu.git
