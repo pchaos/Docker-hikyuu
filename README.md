@@ -22,7 +22,7 @@ using docker build hikyuu
 
 ## 安装完成后，运行：
 
- *   ./start.sh （或 sudo ./start.sh）
+ *   ./start.sh （或 sudo ./start.sh   不使用sudo运行docker参见： https://docs.docker.com/engine/installation/linux/linux-postinstall/）
  *   在docker中输入 jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root ，
  *   浏览器（docker之外的主系统）中输入 127.0.0.1：8888， 即可使用jupyter
 
@@ -31,11 +31,15 @@ using docker build hikyuu
 
 
 --------------------------------------------------
-remarks:
+## remarks:
 
 git add Dockerfile README.md build.sh cleanUnUsedDocker.sh sh/10_SetUpBasicEnvironment.sh sh/15_buildboost.sh sh/20_build_talib.sh sh/25_buildlog4plus.sh \
-  sh/30_buildhikyuu.sh start.sh sh/30_patchfile.hikyuu
+  sh/30_buildhikyuu.sh sh/30_patchfile.hikyuu start.sh
 
 To run Docker, your machine must have a 64-bit operating system running Windows 7 or higher. Additionally, you must make sure that virtualization is enabled on your machine.
 
 * https://docs.docker.com/toolbox/toolbox_install_windows/#step-2-install-docker-toolbox
+
+### Docker基础技术
+* http://coolshell.cn/articles/17010.html
+* http://coolshell.cn/articles/17029.html
