@@ -7,7 +7,7 @@ using docker build hikyuu
 
 ## 本文件在linux环境下测试（windows下不能保障,需要修改相应的脚本）
 
-## 安装前请确认已配置好docker环境。 docker保存目录建议有20G以上磁盘剩余空间
+## 安装前请确认已配置好docker环境。 docker image保存目录建议有20G以上磁盘剩余空间
 
 ## 安装步骤：
 
@@ -27,7 +27,7 @@ using docker build hikyuu
  *   浏览器（docker之外的主系统）中输入 127.0.0.1：8888， 即可使用jupyter
 
 
-感谢制作docker过程中fasiondog的鼎力支持。
+***感谢制作docker过程中fasiondog的鼎力支持。***
 
 
 --------------------------------------------------

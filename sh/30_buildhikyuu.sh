@@ -15,16 +15,19 @@ ln -s /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6  /usr/lib/x86_64-linux-gnu/l
 git clone https://git.oschina.net/fasiondog/hikyuu_examples.git
 
 # solve: ImportError: libGL.so.1: cannot open shared object file: No such file or directory
-#apt install -y libgl1-mesa-glx
+apt install -y libgl1-mesa-glx unrar
 #apt install -y qt5-image-formats-plugins
 
 # if not exists hikyuu then download
 [ ! -d hikyuu ] && git clone https://github.com/fasiondog/hikyuu.git
 cd hikyuu
 # hikyuu编译打补丁
-echo .............................. patch Jamroot
+echo ".............................. patch Jamroot"
 cp Jamroot.linux Jamroot.linux.orig
 patch -p0 < $tmpdir/30_patchfile.hikyuu
+
+echo ".............................. patch importdata.cpp"
+sed -i 's/\\\\/\//g' ./tools/importdata/importdata.cpp
 
 ./build.sh
 
