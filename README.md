@@ -7,7 +7,7 @@ using docker build hikyuu
 
 ## 本文件在linux环境下测试（windows下不能保障,需要修改相应的脚本）
 
-## 安装前请确认已配置好docker环境。
+## 安装前请确认已配置好docker环境。 docker保存目录建议有20G以上磁盘剩余空间
 
 ## 安装步骤：
 
@@ -31,15 +31,26 @@ using docker build hikyuu
 
 
 --------------------------------------------------
+### Docker基础技术
+* http://coolshell.cn/articles/17010.html
+* http://coolshell.cn/articles/17029.html
+* Docker文档整理与汇总  http://www.jianshu.com/p/7e4796cd35a0
+
 ## remarks:
 
 git add Dockerfile README.md build.sh cleanUnUsedDocker.sh sh/10_SetUpBasicEnvironment.sh sh/15_buildboost.sh sh/20_build_talib.sh sh/25_buildlog4plus.sh \
-  sh/30_buildhikyuu.sh sh/30_patchfile.hikyuu start.sh
+  sh/30_buildhikyuu.sh sh/30_patchfile.hikyuu start.sh .gitignore
 
 To run Docker, your machine must have a 64-bit operating system running Windows 7 or higher. Additionally, you must make sure that virtualization is enabled on your machine.
 
 * https://docs.docker.com/toolbox/toolbox_install_windows/#step-2-install-docker-toolbox
 
-### Docker基础技术
-* http://coolshell.cn/articles/17010.html
-* http://coolshell.cn/articles/17029.html
+
+Tip: Get permission denied when running docker commands?
+If you get an error like this when running docker commands:
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock
+and you can work around it by running 'sudo docker', your user might not be in the docker group. You should avoid running sudo whenever possible, as it runs (possibly unsafe) programs with superuser privileges. Try running the following:
+
+sudo usermod -aG docker $USER
+
+After you log out and log back in, you should be able to run docker commands as your own user (ie. without 'sudo').

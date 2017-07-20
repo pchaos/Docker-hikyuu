@@ -13,6 +13,14 @@ if [ -f $tocheckfile ]; then
   rm $tocheckfile
 fi
 
+if [ -f /opt/conda/bin/conda ]; then
+echo .............................. conda update
+/opt/conda/bin/conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython
+/opt/conda/bin/conda install -y matplotlib lxml hdf5 jupyter
+#RUN conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython matplotlib lxml hdf5
+echo .............................. conda update Done
+fi
+
 echo .............................. pip install -y ta-lib
 
 pip install ta-lib

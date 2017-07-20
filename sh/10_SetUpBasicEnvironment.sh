@@ -13,6 +13,7 @@ RUNLEVEL=1
 
 debdir="/tmp/archives"
 mkdir $HOME
+
 cd $HOME
 if [ ! -f $debdir/git_1%3a2.7.4-0ubuntu1.1_amd64.deb ]; then
     echo .............................. apt-get install language-pack-zh-hant language-pack-zh-hans language-pack-en
@@ -33,12 +34,6 @@ if [ -d $debdir ]; then
 fi
 
 # install development environment
-#
 
-echo .............................. conda update
-/opt/conda/bin/conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython
-/opt/conda/bin/conda install -y matplotlib lxml hdf5 jupyter
-#RUN conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython matplotlib lxml hdf5
-echo .............................. conda update Done
 
 echo done ................................. $0

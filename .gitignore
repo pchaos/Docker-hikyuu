@@ -6,4 +6,7 @@ boost_1_64_0.tar.gz
 tini
 hdf5-1.8.19.tar.gz
 log4cplus-1.2.1-rc2.tar.gz
-tmp/*.*
+tmp
+hikyuu_examples
+test.sh
+
