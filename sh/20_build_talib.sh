@@ -10,18 +10,20 @@ if [ -f $tocheckfile ]; then
   # 加上 make -j4 会报错 Makefile:254: recipe for target 'gen_code-gen_code.o' failed
   make
   make install
+  cd ../
   rm $tocheckfile
+  rm -rf ta-lib
 fi
 
 if [ -f /opt/conda/bin/conda ]; then
-echo .............................. conda update
-/opt/conda/bin/conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython
+echo ".............................. conda update"
+/opt/conda/bin/conda install -y pandas numpy flask beautifulsoup4 requests ipython
 /opt/conda/bin/conda install -y matplotlib lxml hdf5 jupyter
-#RUN conda install -y pandas numpy mkl flask beautifulsoup4 requests ipython matplotlib lxml hdf5
+/opt/conda/bin/conda install -y mkl
 echo .............................. conda update Done
 fi
 
-echo .............................. pip install -y ta-lib
+echo ".............................. pip install ta-lib"
 
 pip install ta-lib
 pip install pyperclip

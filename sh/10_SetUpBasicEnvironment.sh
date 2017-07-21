@@ -31,6 +31,8 @@ if [ -d $debdir ]; then
     [ -d mysql ] && dpkg -i mysql/*.deb
     [ ! -d hdf5 ] && apt-get install -y libhdf5-dev libhdf5-serial-dev
     [ -d hdf5 ] && dpkg -i hdf5/*.deb
+    #for xcb lib
+    apt-get install -y libqt5x11extras5
 fi
 
 # install development environment
