@@ -32,8 +32,8 @@ if [ -d $debdir ]; then
     [ ! -d hdf5 ] && apt-get install -y libhdf5-dev libhdf5-serial-dev
     [ -d hdf5 ] && dpkg -i hdf5/*.deb
     #for hikyuu xcb lib
-    apt-get install -y libqt5x11extras5 -d -o dir::cache=/home/fashiondog && cp /home/fashiondog/archives/*.deb /tmp/archives/hikyuu/
-    [ !-d hikyuu ] && apt-get install -y libqt5x11extras5 unrar
+    #apt-get install -y libqt5x11extras5 -d -o dir::cache=/home/fashiondog && cp /home/fashiondog/archives/*.deb /tmp/archives/hikyuu/
+    [ ! -d hikyuu ] && apt-get install -y libqt5x11extras5 unrar
     [ -d hikyuu ] && dpkg -i hikyuu/*.deb
 fi
 

@@ -20,9 +20,12 @@ COPY sh/10_SetUpBasicEnvironment.sh sh/10_ubuntusource.list \
      sh/conda3.sh \
   $tmpdir/
 
+#替换apt源
+RUN cp -f $tmpdir/10_ubuntusource.list /etc/apt/sources.list.d/docker.list && rm -f /etc/apt/sources.list
+
 COPY archives $tmpdir/archives/
 
-RUN cp -f $tmpdir/10_ubuntusource.list /etc/apt/source.list &&  $tmpdir/10_SetUpBasicEnvironment.sh
+RUN $tmpdir/10_SetUpBasicEnvironment.sh
 
 # install Anaconda3
 RUN  bash $tmpdir/conda3.sh -b -p /opt/conda  && rm $tmpdir/conda3.sh
