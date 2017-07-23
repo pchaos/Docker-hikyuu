@@ -3,11 +3,11 @@ using docker build hikyuu
 
 ## 基于fasiondog的hikyuu搭建hikyuu环境。
 
-本docker 基于ubuntu 16.04构建，安装了gcc相关开发包、Anaconda3-4.4.0-Linux-x86_64、boost 1.64、log4cplus 1.2.1等相关资源
+本docker 基于ubuntu 16.04构建，安装了gcc相关开发包、qt5、Anaconda3-4.4.0-Linux-x86_64、boost 1.64、log4cplus 1.2.1等相关资源
 
 ## 本文件在linux环境下测试（windows下不能保障,需要修改相应的脚本）
 
-## 安装前请确认已配置好docker环境。 docker image保存目录建议有20G以上磁盘剩余空间
+## 安装前请确认已配置好docker环境。 docker image保存目录建议有20G（build的过程中间文件比较占用空间，剩余空间越大越好）以上磁盘剩余空间
 
 ## 安装步骤：
 
@@ -24,7 +24,7 @@ using docker build hikyuu
 
  *   ./start.sh （或 sudo ./start.sh   不使用sudo运行docker参见： https://docs.docker.com/engine/installation/linux/linux-postinstall/）
  *   在docker中输入 jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root ，
- *   浏览器（docker之外的主系统）中输入 127.0.0.1：8888， 即可使用jupyter
+ *   浏览器（docker之外的主系统）中输入上一步产生的链接（或 127.0.0.1：8888）， 即可使用jupyter
 
 
 ***感谢制作docker过程中fasiondog的鼎力支持。***
