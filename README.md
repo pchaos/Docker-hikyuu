@@ -35,6 +35,7 @@ using docker build hikyuu
 * http://coolshell.cn/articles/17010.html
 * http://coolshell.cn/articles/17029.html
 * Docker文档整理与汇总  http://www.jianshu.com/p/7e4796cd35a0
+* Docker杂谈 http://www.jianshu.com/p/2a917158b792
 
 ## remarks:
 

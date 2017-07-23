@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
-buildName="hikyuu:lastest"
+# 当数一非空时，改变buildName
+[ $1 ]  && buildName=$1
+[ ! $buildName ] && buildName="hikyuu:lastest"
 
 #下载相关资源
 log4c="log4cplus-1.2.1-rc2.tar.gz"

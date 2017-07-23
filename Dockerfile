@@ -7,22 +7,22 @@ ARG chinaLang=C.UTF-8
 ARG fasiondoghome=/home/fasiondog
 
 #设置时区和默认语言
-ENV TZ=Asia/Shanghai \
- LANG=$chinaLang \
+ENV LANG=$chinaLang \
  LANGUAGE=$chinaLang \
  LC_ALL=$chinaLang \
  tmpdir=/tmp \
  HOME=$fasiondoghome \
+ # TZ=Asia/Shanghai \
  DEBIAN_FRONTEND=noninteractive
 
 #安装中文和英文语言支持
-COPY sh/10_SetUpBasicEnvironment.sh sh/conda3.sh \
-  #sh/15_buildboost.sh \
+COPY sh/10_SetUpBasicEnvironment.sh sh/10_ubuntusource.list \
+     sh/conda3.sh \
   $tmpdir/
 
 COPY archives $tmpdir/archives/
 
-RUN $tmpdir/10_SetUpBasicEnvironment.sh
+RUN cp -f $tmpdir/10_ubuntusource.list /etc/apt/source.list &&  $tmpdir/10_SetUpBasicEnvironment.sh
 
 # install Anaconda3
 RUN  bash $tmpdir/conda3.sh -b -p /opt/conda  && rm $tmpdir/conda3.sh
@@ -66,11 +66,10 @@ RUN $tmpdir/30_buildhikyuu.sh
 
 # Add Tini. Tini operates as a process subreaper for jupyter. This prevents kernel crashes.
 ENV TINI=/usr/local/bin
-COPY tini $tmpdir/
+COPY tini sh/40_buildclean.sh $tmpdir/
 #ENTRYPOINT ["$tmpdir/tini", "--"]
 
 EXPOSE 8888
 #CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
 
-# zh_CN.utf8
 #
